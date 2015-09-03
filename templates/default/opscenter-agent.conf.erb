@@ -4,6 +4,18 @@
 #
 stomp_interface: "<%= @server_ip %>"
 
+<% if node['cassandra']['opscenter']['agent']['local_interface'] %>
+local_interface: <%= node['cassandra']['opscenter']['agent']['local_interface'] %>
+<% end %>
+
+<% if node['cassandra']['opscenter']['agent']['agent_rpc_interface'] %>
+agent_rpc_interface: <%= node['cassandra']['opscenter']['agent']['agent_rpc_interface'] %>
+<% end %>
+
+<% if node['cassandra']['opscenter']['agent']['agent_rpc_broadcast_address'] %>
+agent_rpc_broadcast_address: <%= node['cassandra']['opscenter']['agent']['agent_rpc_broadcast_address'] %>
+<% end %>
+
 <% unless node['cassandra']['opscenter']['agent']['use_ssl'] %>
 use_ssl: 0
 <% end %>
